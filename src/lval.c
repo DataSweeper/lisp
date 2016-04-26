@@ -98,6 +98,8 @@ void lval_del(lval* v) {
 
 void lval_print_expr(lval* v, char open, char close) {
   putchar(open);
+  if (v->count == 0)
+    printf("ok");
   for (int i = 0; i < v->count; i++) {
     lval_print(v->cell[i]);    
     if (i != (v->count-1)) {

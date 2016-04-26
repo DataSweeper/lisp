@@ -41,7 +41,7 @@ typedef struct lenv lenv;
 enum { LVAL_ERR, LVAL_NUM,   LVAL_SYM, LVAL_STR, 
        LVAL_FUN, LVAL_SEXPR, LVAL_QEXPR };
        
-typedef lval*(*lbuiltin)(lenv*, lval*);
+lval* (*lbuiltin) (lenv*, lval*); // lbuiltin Function pointer declaration.
 
 struct lval {
   int type;

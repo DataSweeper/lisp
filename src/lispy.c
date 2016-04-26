@@ -267,11 +267,9 @@ lval* builtin_print(lenv* e, lval* a) {
   for (int i = 0; i < a->count; i++) {
     lval_print(a->cell[i]); putchar(' ');
   }
-  
   /* Print a newline and delete arguments */
   putchar('\n');
   lval_del(a);
-  
   return lval_sexpr();
 }
 
