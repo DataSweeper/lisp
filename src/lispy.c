@@ -273,6 +273,20 @@ lval* builtin_print(lenv* e, lval* a) {
   return lval_sexpr();
 }
 
+lval* builtin_show (lenv* e, lval* a) { 
+  for (int i = 0; i < a->count; i++) {
+    if (a->cell[i]->type == LVAL_STR) {
+      printf("%s", a->cell[i]->str);putchar(' ');
+    }
+    else {
+      printf ("Not a string.");
+    }
+  }
+  putchar('\n');
+  lval_del(a);
+  return lval_sexpr();
+}
+
 lval* builtin_error(lenv* e, lval* a) {
   LASSERT_NUM("error", a, 1);
   LASSERT_TYPE("error", a, 0, LVAL_STR);
@@ -324,6 +338,7 @@ void lenv_add_builtins(lenv* e) {
   lenv_add_builtin(e, "load",  builtin_load); 
   lenv_add_builtin(e, "error", builtin_error);
   lenv_add_builtin(e, "print", builtin_print);
+  lenv_add_builtin(e, "show", builtin_show);
 }
 
 /* Evaluation */
