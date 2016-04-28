@@ -30,9 +30,9 @@ mpc_parser_t* Expr;
 mpc_parser_t* Lispy;
 
 /* Forward Declarations */
-
 struct lval;
 struct lenv;
+
 typedef struct lval lval;
 typedef struct lenv lenv;
 
@@ -41,7 +41,7 @@ typedef struct lenv lenv;
 enum { LVAL_ERR, LVAL_NUM,   LVAL_SYM, LVAL_STR, 
        LVAL_FUN, LVAL_SEXPR, LVAL_QEXPR };
        
-lval* (*lbuiltin) (lenv*, lval*); // lbuiltin Function pointer declaration.
+typedef lval* (*lbuiltin) (lenv*, lval*); // lbuiltin Function pointer declaration.
 
 struct lval {
   int type;

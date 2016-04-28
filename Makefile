@@ -3,7 +3,8 @@ CC = gcc
 
 OBJDIR = obj
 CFLAGS = -std=c99 -Wall
-INCLUDE = -I/personal/MY-GIT/Ritchie/buildourownlisp/strings/include
+#INCLUDE = -I./include
+INCLUDE = -Iinclude
 OUTPUT = lispy
 
 all:
