@@ -39,7 +39,7 @@ typedef struct lenv lenv;
 /* Lisp Value */
 
 enum { LVAL_ERR, LVAL_NUM,   LVAL_SYM, LVAL_STR, 
-       LVAL_FUN, LVAL_SEXPR, LVAL_QEXPR };
+       LVAL_FUN, LVAL_SEXPR, LVAL_QEXPR, LVAL_FILE };
        
 typedef lval* (*lbuiltin) (lenv*, lval*); // lbuiltin Function pointer declaration.
 
@@ -51,6 +51,7 @@ struct lval {
   char* err;
   char* sym;
   char* str;
+  FILE* filep;
   
   /* Function */
   lbuiltin builtin;
@@ -100,3 +101,6 @@ void lenv_add_builtins(lenv* e);
 lval* lenv_get(lenv* e, lval* k);
 void lenv_def(lenv* e, lval* k, lval* v);
 void lenv_put(lenv* e, lval* k, lval* v);
+
+// File function declaration
+lval* builtin_fappend (lenv* e, lval* v);

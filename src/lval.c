@@ -37,6 +37,13 @@ lval* lval_str(char* s) {
   return v;
 }
 
+lval* lval_file(FILE* f) {
+  lval* v = malloc(sizeof(lval));
+  v->type = LVAL_FILE;
+  v->filep = f;
+  return v;
+}
+
 lval* lval_builtin(lbuiltin func) {
   lval* v = malloc(sizeof(lval));
   v->type = LVAL_FUN;
