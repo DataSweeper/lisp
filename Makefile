@@ -15,7 +15,7 @@ all:
 	$(CC) -c $(CFLAGS) $(INCLUDE) src/lenv.c -o $(OBJDIR)/lenv.o
 	$(CC) -c $(CFLAGS) $(INCLUDE) src/main.c -o $(OBJDIR)/main.o
 	$(CC) -c $(CFLAGS) $(INCLUDE) src/file.c -o $(OBJDIR)/file.o
-	$(CC) $(OBJDIR)/*.o -ledit -lm -o $(OUTPUT)
+	$(CC) -L./lib $(OBJDIR)/*.o -ledit -lm -o $(OUTPUT)
 
 clean:
 	rm $(OBJDIR)/*.o $(OUTPUT)
