@@ -3,7 +3,6 @@ CC = gcc
 
 OBJDIR = obj
 CFLAGS = -std=c99 -Wall
-#INCLUDE = -I./include
 INCLUDE = -Iinclude
 OUTPUT = lispy
 
